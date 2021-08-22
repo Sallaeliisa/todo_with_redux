@@ -18,7 +18,7 @@ class Notes extends Component {
         </form>
         <div className="list">
           {this.props.storedNotes.map((item) => (
-            <li key={item.id} onClick={() => this.props.remove(item.id)}>{item.content}</li>
+            <li key={item.id}>{item.content}<button onClick={() => this.props.remove(item.id)}>Delete</button></li>
           ))}
         </div>
       </div>
