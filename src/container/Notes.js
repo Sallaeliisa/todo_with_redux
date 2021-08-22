@@ -6,9 +6,15 @@ class Notes extends Component {
   render() {
     return (
       <div>
+        <header>
+          <h1>To do list</h1>
+          <p>I have {this.props.storedNotes.length} tasks</p>
+        </header>
         <form>
           <input type="text" id="addNote"></input>
-          <button type='button' onClick={this.props.add}>Add a task</button>
+          <button type="button" onClick={this.props.add}>
+            Add a task
+          </button>
         </form>
         <div className="list">
           {this.props.storedNotes.map((item) => (
@@ -30,7 +36,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     add: () =>
       dispatch({
-        type: actionTypes.ADD
+        type: actionTypes.ADD,
       }),
   };
 };
