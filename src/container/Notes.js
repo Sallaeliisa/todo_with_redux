@@ -38,7 +38,7 @@ const mapDispatchToProps = (dispatch) => {
       dispatch({
         type: actionTypes.ADD,
       }),
-      completed: (id) => dispatch({ type: actionTypes.REMOVE, item: id }),
+      remove: (id) => dispatch({ type: actionTypes.REMOVE, item: id }),
   };
 };
 
