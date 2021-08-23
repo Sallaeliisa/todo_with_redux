@@ -18,7 +18,7 @@ class Notes extends Component {
         </form>
         <div className="list">
           {this.props.storedNotes.map((item) => (
-            <li key={item.id}>{item.content}<button onClick={() => this.props.remove(item.id)}>Delete</button></li>
+            <li key={item.id} className={item.completed ? 'complete' : 'incomplete'}><label onClick={() => this.props.check(item.id)}>{item.content}</label><button onClick={() => this.props.remove(item.id)}>Delete</button></li>
           ))}
         </div>
       </div>
@@ -39,6 +39,7 @@ const mapDispatchToProps = (dispatch) => {
         type: actionTypes.ADD,
       }),
       remove: (id) => dispatch({ type: actionTypes.REMOVE, item: id }),
+      check: (id) => dispatch ({ type: actionTypes.CHECK, item: id}),
   };
 };
 
