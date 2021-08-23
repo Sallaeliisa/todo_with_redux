@@ -12,10 +12,57 @@ code {
     monospace;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: rgb(53, 53, 53);
+  height: 19vh;
+  color: rgb(247, 231, 201);
+}
+
+h1 {
+  padding: 20px 20px 20px 50px;
+}
+
+p, li {
+  padding: 0 0 0 50px;
+  line-height: 200%;
+}
+
+li {
+  margin: 20px 10px 0 0;
+}
+
 .complete {
   text-decoration-line: line-through;
 }
 
 .incomplete {
   text-decoration-line: none;
+}
+
+input {
+  height: 4vh;
+  width: 17vw;
+  margin: 50px 0 50px 50px;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+form button {
+  background-color: orange;
+  height: 4vh;
+  width: 100px;
+  border-radius: 5px;
+  margin-left: 20px;
+  box-shadow: 0 0 5px #333;
+}
+
+.remove-btn {
+  border-style: none;
+  margin-left: 1em;
+  font-size: 20px;
 }

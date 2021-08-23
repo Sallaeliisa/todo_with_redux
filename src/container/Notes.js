@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import * as actionTypes from "../actions/actions";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrash } from '@fortawesome/free-solid-svg-icons'
 
 class Notes extends Component {
   render() {
@@ -8,7 +10,7 @@ class Notes extends Component {
       <div>
         <header>
           <h1>To do list</h1>
-          <p>I have {this.props.storedNotes.length} tasks</p>
+          <p>Tasks: {this.props.storedNotes.length}</p>
         </header>
         <form>
           <input type="text" id="addNote"></input>
@@ -18,7 +20,7 @@ class Notes extends Component {
         </form>
         <div className="list">
           {this.props.storedNotes.map((item) => (
-            <li key={item.id} className={item.completed ? 'complete' : 'incomplete'}><label onClick={() => this.props.check(item.id)}>{item.content}</label><button onClick={() => this.props.remove(item.id)}>Delete</button></li>
+            <li key={item.id} className={item.completed ? 'complete' : 'incomplete'}><label onClick={() => this.props.check(item.id)}>{item.content}</label><button className='remove-btn' onClick={() => this.props.remove(item.id)}><FontAwesomeIcon icon={faTrash} /></button></li>
           ))}
         </div>
       </div>
