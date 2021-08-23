@@ -7,27 +7,36 @@ const reducer = (state = initialState, action) => {
         ...state,
         notes: state.notes.concat({
           id: new Date(),
-          content: document.getElementById("addNote").value, completed: false,
+          content: document.getElementById("addNote").value,
+          completed: false,
         }),
-      }
-      case actionTypes.CHECK:
-        const checkedArray = state.notes.map(
-          (item) => {return item.id === action.item ? {
-            ...item, completed: !item.completed,
-          } : item;}
-        );
-        return {
-          ...state,
-          notes: checkedArray,
-        };
-      case actionTypes.REMOVE:
-        const updatedArray = state.notes.filter(
-          (item) => item.id !== action.item
-        );
-        return {
-          ...state,
-          notes: updatedArray,
-        };
+      };
+    case actionTypes.CHECK:
+      const checkedArray = state.notes.map((item) => {
+        return item.id === action.item
+          ? {
+              ...item,
+              completed: !item.completed,
+            }
+          : item;
+      });
+      return {
+        ...state,
+        notes: checkedArray,
+      };
+    case actionTypes.REMOVE:
+      const updatedArray = state.notes.filter(
+        (item) => item.id !== action.item
+      );
+      return {
+        ...state,
+        notes: updatedArray,
+      };
+    case actionTypes.DELETEALL:
+      const emptyArray = [];
+      return {
+        notes: emptyArray,
+      };
   }
   return state;
 };
