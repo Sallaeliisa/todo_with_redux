@@ -9,7 +9,7 @@ const reducer = (state = initialState, action) => {
           id: new Date(),
           content: document.getElementById("addNote").value, completed: false,
         }),
-      };
+      }
       case actionTypes.CHECK:
         const checkedArray = state.notes.map(
           (item) => {return item.id === action.item ? {

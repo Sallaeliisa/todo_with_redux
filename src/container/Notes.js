@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import * as actionTypes from "../actions/actions";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTrash } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 class Notes extends Component {
   render() {
@@ -14,7 +14,7 @@ class Notes extends Component {
         </header>
         <form>
           <input type="text" id="addNote"></input>
-          <button type="button" onClick={this.props.add}>
+          <button type="button" onClick={() => {this.props.add(); clear();}}>
             Add a task
           </button>
         </form>
@@ -26,6 +26,10 @@ class Notes extends Component {
       </div>
     );
   }
+}
+
+const clear = () => {
+  document.getElementById("addNote").value = '';
 }
 
 const mapStateToProps = (state) => {
